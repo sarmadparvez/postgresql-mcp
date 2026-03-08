@@ -1,4 +1,4 @@
-# pg-mcp-server
+# postgresql-mcp
 
 A reusable [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server for PostgreSQL with full read-write support.
 
@@ -63,7 +63,7 @@ Add this to your `claude_desktop_config.json`:
     "postgres": {
       "command": "node",
       "args": [
-        "/absolute/path/to/pg-mcp-server/index.js",
+        "/absolute/path/to/postgresql-mcp/index.js",
         "postgresql://user:pass@localhost:5432/mydb"
       ]
     }
@@ -79,7 +79,7 @@ For read-only access:
     "postgres-readonly": {
       "command": "node",
       "args": [
-        "/absolute/path/to/pg-mcp-server/index.js",
+        "/absolute/path/to/postgresql-mcp/index.js",
         "postgresql://user:pass@localhost:5432/mydb?mode=readonly"
       ]
     }
