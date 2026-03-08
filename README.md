@@ -74,30 +74,30 @@ First, install the package globally:
 npm install -g @sarmadparvez/postgresql-mcp
 ```
 
-Then find the paths to node and the installed package:
+Then find the paths to `node` and the installed script:
 
 ```bash
-which node         # e.g. /usr/local/bin/node
-which postgresql-mcp  # e.g. /usr/local/bin/postgresql-mcp
-```
+which node
+# e.g. /usr/local/bin/node
+# nvm users: /Users/yourname/.nvm/versions/node/v22.12.0/bin/node
 
-> **nvm users:** Claude Desktop launches with a different PATH than your terminal and may pick up the wrong Node version via the shebang. Use the full paths to both `node` and the script to guarantee the correct version is used:
-> ```bash
-> # Find your node path
-> which node   # e.g. /Users/yourname/.nvm/versions/node/v22.12.0/bin/node
-> # Find the installed script
-> ls $(npm root -g)/@sarmadparvez/postgresql-mcp/index.js
-> ```
+npm root -g
+# e.g. /usr/local/lib/node_modules
+# nvm users: /Users/yourname/.nvm/versions/node/v22.12.0/lib/node_modules
+```
 
 Add this to your `claude_desktop_config.json`:
 
-**Standard install (non-nvm):**
+- Replace `command` with the output of `which node`
+- Replace the prefix of the script path with the output of `npm root -g` — the suffix `/@sarmadparvez/postgresql-mcp/index.js` stays the same
+
 ```json
 {
   "mcpServers": {
     "postgres": {
-      "command": "/path/to/postgresql-mcp",
+      "command": "/usr/local/bin/node",
       "args": [
+        "/usr/local/lib/node_modules/@sarmadparvez/postgresql-mcp/index.js",
         "postgresql://user:pass@localhost:5432/mydb"
       ]
     }
@@ -105,22 +105,21 @@ Add this to your `claude_desktop_config.json`:
 }
 ```
 
-**nvm users (recommended):**
+For read-only access, append `?mode=readonly` to the connection string:
+
 ```json
 {
   "mcpServers": {
-    "postgres": {
-      "command": "/path/to/node",
+    "postgres-readonly": {
+      "command": "/usr/local/bin/node",
       "args": [
-        "/path/to/node_modules/@sarmadparvez/postgresql-mcp/index.js",
-        "postgresql://user:pass@localhost:5432/mydb"
+        "/usr/local/lib/node_modules/@sarmadparvez/postgresql-mcp/index.js",
+        "postgresql://user:pass@localhost:5432/mydb?mode=readonly"
       ]
     }
   }
 }
 ```
-
-For read-only access, append `?mode=readonly` to the connection string.
 
 ## Dependencies
 
