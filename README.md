@@ -74,14 +74,24 @@ First, install the package globally:
 npm install -g @sarmadparvez/postgresql-mcp
 ```
 
-Then find the path to the installed binary:
+Then find the paths to node and the installed package:
 
 ```bash
-which postgresql-mcp
+which node         # e.g. /usr/local/bin/node
+which postgresql-mcp  # e.g. /usr/local/bin/postgresql-mcp
 ```
 
-Add this to your `claude_desktop_config.json`, replacing `/path/to/postgresql-mcp` with the output of the above command:
+> **nvm users:** Claude Desktop launches with a different PATH than your terminal and may pick up the wrong Node version via the shebang. Use the full paths to both `node` and the script to guarantee the correct version is used:
+> ```bash
+> # Find your node path
+> which node   # e.g. /Users/yourname/.nvm/versions/node/v22.12.0/bin/node
+> # Find the installed script
+> ls $(npm root -g)/@sarmadparvez/postgresql-mcp/index.js
+> ```
 
+Add this to your `claude_desktop_config.json`:
+
+**Standard install (non-nvm):**
 ```json
 {
   "mcpServers": {
@@ -95,20 +105,22 @@ Add this to your `claude_desktop_config.json`, replacing `/path/to/postgresql-mc
 }
 ```
 
-For read-only access:
-
+**nvm users (recommended):**
 ```json
 {
   "mcpServers": {
-    "postgres-readonly": {
-      "command": "/path/to/postgresql-mcp",
+    "postgres": {
+      "command": "/path/to/node",
       "args": [
-        "postgresql://user:pass@localhost:5432/mydb?mode=readonly"
+        "/path/to/node_modules/@sarmadparvez/postgresql-mcp/index.js",
+        "postgresql://user:pass@localhost:5432/mydb"
       ]
     }
   }
 }
 ```
+
+For read-only access, append `?mode=readonly` to the connection string.
 
 ## Dependencies
 
