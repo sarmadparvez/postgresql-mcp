@@ -23,7 +23,7 @@ This server is the alternative for everything else: local PostgreSQL, self-hoste
 npm install -g @sarmadparvez/postgresql-mcp
 ```
 
-Or run directly without installing:
+Or run directly without installing (requires npm 7+ / Node.js 18+):
 
 ```bash
 npx @sarmadparvez/postgresql-mcp <postgresql-connection-string>
@@ -45,7 +45,7 @@ postgresql-mcp postgresql://user:pass@localhost:5432/mydb
 postgresql-mcp postgresql://user:pass@localhost:5432/mydb?mode=readonly
 ```
 
-Or with `npx` (no install required):
+Or with `npx` (requires npm 7+ / Node.js 18+):
 
 ```bash
 npx @sarmadparvez/postgresql-mcp postgresql://user:pass@localhost:5432/mydb
@@ -68,16 +68,26 @@ Append `?mode=readonly` to the connection string to start the server in read-onl
 
 ## Claude Desktop Configuration
 
-Add this to your `claude_desktop_config.json`:
+First, install the package globally:
+
+```bash
+npm install -g @sarmadparvez/postgresql-mcp
+```
+
+Then find the path to the installed binary:
+
+```bash
+which postgresql-mcp
+```
+
+Add this to your `claude_desktop_config.json`, replacing `/path/to/postgresql-mcp` with the output of the above command:
 
 ```json
 {
   "mcpServers": {
     "postgres": {
-      "command": "npx",
+      "command": "/path/to/postgresql-mcp",
       "args": [
-        "-y",
-        "@sarmadparvez/postgresql-mcp",
         "postgresql://user:pass@localhost:5432/mydb"
       ]
     }
@@ -91,10 +101,8 @@ For read-only access:
 {
   "mcpServers": {
     "postgres-readonly": {
-      "command": "npx",
+      "command": "/path/to/postgresql-mcp",
       "args": [
-        "-y",
-        "@sarmadparvez/postgresql-mcp",
         "postgresql://user:pass@localhost:5432/mydb?mode=readonly"
       ]
     }

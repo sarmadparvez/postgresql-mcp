@@ -1,6 +1,6 @@
 {
   "name": "@sarmadparvez/postgresql-mcp",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "MCP server for PostgreSQL with full read-write support. Works with any PostgreSQL instance — local, Supabase, RDS, or self-hosted.",
   "main": "index.js",
   "bin": {
