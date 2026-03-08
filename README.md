@@ -20,23 +20,36 @@ This server is the alternative for everything else: local PostgreSQL, self-hoste
 ## Installation
 
 ```bash
-npm install
+npm install -g @sarmadparvez/postgresql-mcp
+```
+
+Or run directly without installing:
+
+```bash
+npx @sarmadparvez/postgresql-mcp <postgresql-connection-string>
 ```
 
 ## Usage
 
 ```bash
-node index.js <postgresql-connection-string>
+postgresql-mcp <postgresql-connection-string>
 ```
 
 **Examples:**
 
 ```bash
 # Read-write access
-node index.js postgresql://user:pass@localhost:5432/mydb
+postgresql-mcp postgresql://user:pass@localhost:5432/mydb
 
 # Read-only mode (disables execute and transaction tools)
-node index.js postgresql://user:pass@localhost:5432/mydb?mode=readonly
+postgresql-mcp postgresql://user:pass@localhost:5432/mydb?mode=readonly
+```
+
+Or with `npx` (no install required):
+
+```bash
+npx @sarmadparvez/postgresql-mcp postgresql://user:pass@localhost:5432/mydb
+npx @sarmadparvez/postgresql-mcp postgresql://user:pass@localhost:5432/mydb?mode=readonly
 ```
 
 ## Tools
@@ -61,9 +74,10 @@ Add this to your `claude_desktop_config.json`:
 {
   "mcpServers": {
     "postgres": {
-      "command": "node",
+      "command": "npx",
       "args": [
-        "/absolute/path/to/postgresql-mcp/index.js",
+        "-y",
+        "@sarmadparvez/postgresql-mcp",
         "postgresql://user:pass@localhost:5432/mydb"
       ]
     }
@@ -77,9 +91,10 @@ For read-only access:
 {
   "mcpServers": {
     "postgres-readonly": {
-      "command": "node",
+      "command": "npx",
       "args": [
-        "/absolute/path/to/postgresql-mcp/index.js",
+        "-y",
+        "@sarmadparvez/postgresql-mcp",
         "postgresql://user:pass@localhost:5432/mydb?mode=readonly"
       ]
     }

@@ -1,14 +1,36 @@
 {
-  "name": "postgresql-mcp",
-  "version": "1.0.0",
+  "name": "@sarmadparvez/postgresql-mcp",
+  "version": "1.0.2",
+  "description": "MCP server for PostgreSQL with full read-write support. Works with any PostgreSQL instance — local, Supabase, RDS, or self-hosted.",
   "main": "index.js",
+  "bin": {
+    "postgresql-mcp": "./index.js"
+  },
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "postgresql",
+    "postgres",
+    "ai",
+    "claude",
+    "llm"
+  ],
+  "author": "sarmadparvez",
   "license": "ISC",
-  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sarmadparvez/postgresql-mcp.git"
+  },
+  "homepage": "https://github.com/sarmadparvez/postgresql-mcp#readme",
+  "engines": {
+    "node": ">=18"
+  },
   "type": "module",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.27.1",
