@@ -1,6 +1,6 @@
 {
   "name": "@sarmadparvez/postgresql-mcp",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "MCP server for PostgreSQL with full read-write support, transactions, and schema inspection. Works with any PostgreSQL instance — local, Supabase, AWS RDS, or self-hosted. Use with Claude, Cursor, Windsurf, and any MCP-compatible AI client.",
   "main": "index.js",
   "bin": {
