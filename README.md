@@ -8,6 +8,10 @@ A [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server for Pos
 
 Connect any PostgreSQL database — **local**, **Supabase**, **AWS RDS**, or **self-hosted** — to your AI assistant in seconds.
 
+<a href="https://glama.ai/mcp/servers/sarmadparvez/postgresql-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/sarmadparvez/postgresql-mcp/badge" alt="postgresql-mcp MCP server" />
+</a>
+
 ## Features
 
 - Full read-write SQL access (`SELECT`, `INSERT`, `UPDATE`, `DELETE`, `CREATE`, `DROP`)
