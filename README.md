@@ -4,6 +4,10 @@
 [![npm downloads](https://img.shields.io/npm/dm/@sarmadparvez/postgresql-mcp.svg)](https://www.npmjs.com/package/@sarmadparvez/postgresql-mcp)
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
+<a href="https://glama.ai/mcp/servers/sarmadparvez/postgresql-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/sarmadparvez/postgresql-mcp/badge" />
+</a>
+
 A [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server for PostgreSQL with full read-write support, atomic transactions, and schema inspection. Works with **Claude Desktop**, **Cursor**, **Windsurf**, and any MCP-compatible AI client.
 
 Connect any PostgreSQL database — **local**, **Supabase**, **AWS RDS**, or **self-hosted** — to your AI assistant in seconds.
