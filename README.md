@@ -1,6 +1,21 @@
 # postgresql-mcp
 
-A reusable [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server for PostgreSQL with full read-write support.
+[![npm version](https://img.shields.io/npm/v/@sarmadparvez/postgresql-mcp.svg)](https://www.npmjs.com/package/@sarmadparvez/postgresql-mcp)
+[![npm downloads](https://img.shields.io/npm/dm/@sarmadparvez/postgresql-mcp.svg)](https://www.npmjs.com/package/@sarmadparvez/postgresql-mcp)
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+
+A [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server for PostgreSQL with full read-write support, atomic transactions, and schema inspection. Works with **Claude Desktop**, **Cursor**, **Windsurf**, and any MCP-compatible AI client.
+
+Connect any PostgreSQL database — **local**, **Supabase**, **AWS RDS**, or **self-hosted** — to your AI assistant in seconds.
+
+## Features
+
+- Full read-write SQL access (`SELECT`, `INSERT`, `UPDATE`, `DELETE`, `CREATE`, `DROP`)
+- Atomic multi-statement transactions with automatic rollback on failure
+- Schema inspection: columns, types, nullability, defaults, primary keys
+- Optional read-only mode via `?mode=readonly`
+- No cloud lock-in — works with any standard PostgreSQL connection string
+- Single file, minimal dependencies
 
 ## Why this exists
 
@@ -120,6 +135,15 @@ For read-only access, append `?mode=readonly` to the connection string:
   }
 }
 ```
+
+## Compatible AI Clients
+
+This MCP server works with any client that supports the Model Context Protocol:
+
+- [Claude Desktop](https://claude.ai/download) (Anthropic)
+- [Cursor](https://www.cursor.com)
+- [Windsurf](https://windsurf.com)
+- Any other MCP-compatible client
 
 ## Dependencies
 

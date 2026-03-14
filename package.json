@@ -1,10 +1,10 @@
 {
   "name": "@sarmadparvez/postgresql-mcp",
-  "version": "1.0.6",
-  "description": "MCP server for PostgreSQL with full read-write support. Works with any PostgreSQL instance — local, Supabase, RDS, or self-hosted.",
+  "version": "1.0.7",
+  "description": "MCP server for PostgreSQL with full read-write support, transactions, and schema inspection. Works with any PostgreSQL instance — local, Supabase, AWS RDS, or self-hosted. Use with Claude, Cursor, Windsurf, and any MCP-compatible AI client.",
   "main": "index.js",
   "bin": {
-    "postgresql-mcp": "./index.js"
+    "postgresql-mcp": "index.js"
   },
   "files": [
     "index.js"
@@ -14,18 +14,34 @@
   },
   "keywords": [
     "mcp",
+    "mcp-server",
     "model-context-protocol",
     "postgresql",
     "postgres",
+    "database",
+    "sql",
     "ai",
     "claude",
-    "llm"
+    "cursor",
+    "windsurf",
+    "llm",
+    "supabase",
+    "rds",
+    "aws-rds",
+    "read-write",
+    "transactions",
+    "schema",
+    "anthropic",
+    "tool-use",
+    "ai-tools",
+    "postgres-mcp",
+    "postgresql-mcp"
   ],
   "author": "sarmadparvez",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sarmadparvez/postgresql-mcp.git"
+    "url": "git+https://github.com/sarmadparvez/postgresql-mcp.git"
   },
   "homepage": "https://github.com/sarmadparvez/postgresql-mcp#readme",
   "engines": {
